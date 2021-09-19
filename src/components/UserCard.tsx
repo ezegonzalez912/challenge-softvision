@@ -32,7 +32,7 @@ export const UserCard: React.FC<Props> = ({ user }) => {
                 <div className="user__more">
                     <p className="user__more__position">{user.position}</p>
                     {
-                        (user.cv && user.cv?.length > 1) && <a className="user__more__cv" href={user.cv} target="_blank">Descargar cv</a>
+                        (user.linkedin && user.linkedin?.length > 1) && <a className="user__more__cv" href={user.linkedin} target="_blank" rel="noreferrer">Linkedin</a>
                     }
                 </div>
             </div>

@@ -4,5 +4,5 @@ export interface User {
     description: string,
     position: string,
     state: string,
-    cv: string
+    linkedin: string
 }

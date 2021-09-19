@@ -10,8 +10,8 @@ type context = {
     users: User[];
     nextUserState: (id: number) => void;
     prevUserState: (id: number) => void;
-    addUser: (name: string, description: string, position: string, cv: string) => void;
-    editUser: (name: string, description: string, position: string, id: number, cv: string) => void;
+    addUser: (name: string, description: string, position: string, linkedin: string) => void;
+    editUser: (name: string, description: string, position: string, id: number, linkedin: string) => void;
     removeUser: (id: number) => void;
     userEditState: User | undefined;
     setUserEditState: any;
@@ -24,7 +24,7 @@ const initState = [
         description: "Tiene buena pinta.",
         position: "FRONTEND",
         state: "interviewsInitial",
-        cv: "https://drive.google.com/file/d/1XL0G_11aQ71LQwiAZGUH0cFHXLNik5_4/view?usp=sharing"
+        linkedin: "https://drive.google.com/file/d/1XL0G_11aQ71LQwiAZGUH0cFHXLNik5_4/view?usp=sharing"
     }
 ]
 
@@ -45,20 +45,20 @@ export const UsersProvider = ({children}:props) => {
         localStorage.setItem("challenge-softvision-users-121214", JSON.stringify({users}))
     }, [users])
 
-    const addUser = (name: string, description: string, position: string, cv: string) => {
+    const addUser = (name: string, description: string, position: string, linkedin: string) => {
         const newUser = {
             id: new Date().valueOf(),
             name,
             description,
             position,
             state: "interviewsInitial",
-            cv
+            linkedin
         }
         setUsers([...users, newUser])
     }
 
-    const editUser = (name: string, description: string, position: string, id: number, cv: string) => {
-        const newUsers = users.map( user => user.id === id ? {...user, name, description, position, cv} : user)
+    const editUser = (name: string, description: string, position: string, id: number, linkedin: string) => {
+        const newUsers = users.map( user => user.id === id ? {...user, name, description, position, linkedin} : user)
         setUsers(newUsers)
     }
 

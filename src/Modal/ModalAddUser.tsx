@@ -52,7 +52,7 @@ export const ModalAddUser: React.FC <Props> = ({isChangeModal}) => {
             linkedin
         }
 
-        if(name.length >= 6 && position.length >= 6 && description.length >= 6 && name.length <= 20 && description.length <= 20 && position.length <= 15){
+        if(name.length >= 6 && position.length >= 6 && description.length >= 6 && name.length <= 20 && description.length <= 25 && position.length <= 15){
             if(userEditState){
                 dispatch({type: "editUser", payload: user})
             }else{

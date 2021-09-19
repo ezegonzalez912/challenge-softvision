@@ -1,5 +1,5 @@
 import { createContext, useEffect, useReducer, useState } from "react";
-import { User } from "../interfaces/interfaces";
+import { Actions, User } from "../interfaces/interfaces";
 import { usersReducer } from "./usersReducer";
 
 interface props {
@@ -8,7 +8,7 @@ interface props {
 
 type context = {
     users: User[];
-    dispatch: any;
+    dispatch: React.Dispatch<Actions>;
     userEditState: User | undefined;
     setUserEditState: React.Dispatch<React.SetStateAction<User | undefined>>;
 }
@@ -28,7 +28,7 @@ export const usersContext = createContext({} as context);
 
 export const UsersProvider = ({children}:props) => {
 
-    const [users, dispatch] = useReducer(usersReducer, initState)
+    const [users, dispatch] = useReducer(usersReducer, [])
     const [userEditState, setUserEditState] = useState<User | undefined>(undefined)
 
     useEffect(() => {

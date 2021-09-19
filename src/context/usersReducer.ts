@@ -1,13 +1,5 @@
 import { nextState, prevState } from "../helpers/helpers"
-import { User } from "../interfaces/interfaces"
-
-type Actions =
-    | {type: "setUsers", payload: User[]}
-    | {type: "addUser", payload: User}
-    | {type: "editUser", payload: User}
-    | {type: "removeUser", payload: number}
-    | {type: "nextStateUser", payload: number}
-    | {type: "prevStateUser", payload: number}
+import { Actions, User } from "../interfaces/interfaces"
 
 export const usersReducer = (state: User[], action:Actions):User[] => {
 

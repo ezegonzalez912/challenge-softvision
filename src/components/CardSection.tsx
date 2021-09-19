@@ -13,6 +13,9 @@ export const CardSection: React.FC<Props> = ({ users, title }) => {
             <h1>{title}</h1>
             <div className="line"/>
             {
+                users.length === 0 ?
+                <p style={{marginTop:"25px"}}>Aun no hay candidatos</p>
+                :
                 users.map( user => (
                     <UserCard key={user.id} user={user}/>
                 ))

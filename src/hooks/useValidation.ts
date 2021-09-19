@@ -8,7 +8,7 @@ export const useValidation = (initState: any) => {
         if(initState.name.length < 6 || initState.description.length < 6 || initState.position.length < 6){
             return setError("Los campos no pueden contener menos de 6 caracteres")
         }
-        if(initState.name.length > 20 || initState.description.length > 20 || initState.position.length > 15){
+        if(initState.name.length > 20 || initState.description.length > 25 || initState.position.length > 15){
             return setError("Los campos no pueden contener demaciados caracteres")
         }
         setError("")

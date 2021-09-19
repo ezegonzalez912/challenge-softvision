@@ -1,4 +1,4 @@
-# Challenge Aerolab
+# Challenge Softvision
 
 En este proyecto se realizo un gestor de canditos donde cada uno de ellos puede encontrarse en fases distintas, los mismos se pueden editar o borrar, los datos se almacenan en el localstorage, al igual que el tema elegido. Fue diseñado primero en figma y luego se paso a codigo.
 

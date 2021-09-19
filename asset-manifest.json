@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/softvision/static/css/main.31eb8517.chunk.css",
+    "main.js": "/softvision/static/js/main.5743ecb0.chunk.js",
+    "main.js.map": "/softvision/static/js/main.5743ecb0.chunk.js.map",
+    "runtime-main.js": "/softvision/static/js/runtime-main.3f032979.js",
+    "runtime-main.js.map": "/softvision/static/js/runtime-main.3f032979.js.map",
+    "static/js/2.cb7221d4.chunk.js": "/softvision/static/js/2.cb7221d4.chunk.js",
+    "static/js/2.cb7221d4.chunk.js.map": "/softvision/static/js/2.cb7221d4.chunk.js.map",
+    "index.html": "/softvision/index.html",
+    "static/css/main.31eb8517.chunk.css.map": "/softvision/static/css/main.31eb8517.chunk.css.map",
+    "static/js/2.cb7221d4.chunk.js.LICENSE.txt": "/softvision/static/js/2.cb7221d4.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3f032979.js",
+    "static/js/2.cb7221d4.chunk.js",
+    "static/css/main.31eb8517.chunk.css",
+    "static/js/main.5743ecb0.chunk.js"
+  ]
+}

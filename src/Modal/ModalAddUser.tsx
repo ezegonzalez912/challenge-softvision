@@ -17,19 +17,21 @@ export const ModalAddUser: React.FC <Props> = ({isChangeModal}) => {
     const {form, handleChange, setForm} = useForm({
         name: "",
         description: "",
-        position: ""
+        position: "",
+        cv: ""
     });
 
     useEffect(() => {
         setForm({
             name: userEditState?.name || "",
             description: userEditState?.description || "",
-            position: userEditState?.position || ""
+            position: userEditState?.position || "",
+            cv: userEditState?.cv || ""
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [editUser])
 
-    const {name, description, position} = form;
+    const {name, description, position, cv} = form;
 
     const handleCancelModal = () => {
         isChangeModal()
@@ -38,11 +40,11 @@ export const ModalAddUser: React.FC <Props> = ({isChangeModal}) => {
 
     const handleSubmitModal = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if(name.length > 6 && position.length > 6 && description.length > 6){
+        if(name.length > 6 && position.length > 6 && description.length > 6 && name.length < 17 && position.length < 17 && description.length < 15){
             if(userEditState){
-                editUser(name, description, position.toUpperCase(), userEditState?.id)
+                editUser(name, description, position.toUpperCase(), userEditState?.id, cv)
             }else{
-                addUser(name, description, position.toUpperCase())
+                addUser(name, description, position.toUpperCase(), cv)
             }
             handleCancelModal()
             setUserEditState(undefined)
@@ -60,6 +62,7 @@ export const ModalAddUser: React.FC <Props> = ({isChangeModal}) => {
                 <input name="name" placeholder="Nombre" value={name} onChange={handleChange}/>
                 <input name="description" placeholder="Descripción" value={description} onChange={handleChange}/>
                 <input name="position" placeholder="Posición" value={position} onChange={handleChange}/>
+                <input name="cv" placeholder="Enlace de cv" value={cv} onChange={handleChange}/>
                 <button className="btn">{userEditState ? "Guardar" : "Añadir"}</button>
             </form>
             <button className="modal-btn-cancel" onClick={handleCancelModal}>Cancelar</button>

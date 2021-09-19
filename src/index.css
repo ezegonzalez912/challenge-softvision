@@ -168,8 +168,10 @@
 }
 .user__more__cv{
   font-size: 14px;
-  text-decoration: underline;
   cursor: pointer;
+  color: white;
+  text-decoration: none;
+  text-decoration: underline;
 }
 
 /*MODAL*/
@@ -265,11 +267,15 @@
   background-color: rgb(255, 255, 255);
   border: 1px solid rgba(148, 148, 148, 0.397);
 }
+.light-theme .user__more__cv{
+  color: rgb(44, 44, 44);
+}
 .light-theme .modal-btn-cancel{
   color: rgb(44, 44, 44);
 }
-.modal-add-user form input{
+.light-theme .modal-add-user form input{
   border: 1px solid rgba(97, 97, 97, 0.25);
+  color: rgb(44, 44, 44);
 }
 
 @media (max-width: 700px) {

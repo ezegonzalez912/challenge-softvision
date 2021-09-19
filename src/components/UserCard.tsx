@@ -31,7 +31,9 @@ export const UserCard: React.FC<Props> = ({ user }) => {
                 <p className="user__description">{user.description}</p>
                 <div className="user__more">
                     <p className="user__more__position">{user.position}</p>
-                    <p className="user__more__cv">Descargar cv</p>
+                    {
+                        (user.cv && user.cv?.length > 1) && <a className="user__more__cv" href={user.cv} target="_blank">Descargar cv</a>
+                    }
                 </div>
             </div>
             <div className="user-icons">

@@ -3,5 +3,6 @@ export interface User {
     name: string,
     description: string,
     position: string,
-    state: string
+    state: string,
+    cv: string
 }

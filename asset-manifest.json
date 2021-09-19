@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/challenge-softvision/static/css/main.c6bceb13.chunk.css",
-    "main.js": "/challenge-softvision/static/js/main.65a4de4b.chunk.js",
-    "main.js.map": "/challenge-softvision/static/js/main.65a4de4b.chunk.js.map",
+    "main.js": "/challenge-softvision/static/js/main.bc9543d0.chunk.js",
+    "main.js.map": "/challenge-softvision/static/js/main.bc9543d0.chunk.js.map",
     "runtime-main.js": "/challenge-softvision/static/js/runtime-main.46ce232a.js",
     "runtime-main.js.map": "/challenge-softvision/static/js/runtime-main.46ce232a.js.map",
     "static/js/2.e98b515a.chunk.js": "/challenge-softvision/static/js/2.e98b515a.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.46ce232a.js",
     "static/js/2.e98b515a.chunk.js",
     "static/css/main.c6bceb13.chunk.css",
-    "static/js/main.65a4de4b.chunk.js"
+    "static/js/main.bc9543d0.chunk.js"
   ]
 }

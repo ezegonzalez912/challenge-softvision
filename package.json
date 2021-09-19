@@ -1,6 +1,6 @@
 {
   "homepage": "https://ezegonzalez912.github.io/challenge-softvision/",
-  "name": "softvision-challenge",
+  "name": "challenge-softvision",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -22,7 +22,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeply": "npm run build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {

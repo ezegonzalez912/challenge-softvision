@@ -24,7 +24,7 @@ const initState = [
         description: "Tiene buena pinta.",
         position: "FRONTEND",
         state: "interviewsInitial",
-        linkedin: "https://drive.google.com/file/d/1XL0G_11aQ71LQwiAZGUH0cFHXLNik5_4/view?usp=sharing"
+        linkedin: "https://www.linkedin.com/in/ezequiel-gonzalez-9a17b3208/"
     }
 ]
 

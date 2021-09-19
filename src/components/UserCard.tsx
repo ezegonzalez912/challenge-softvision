@@ -23,9 +23,12 @@ export const UserCard: React.FC<Props> = ({ user }) => {
 
     return (
         <div className="user-container">
-            <div className="user-arrow" onClick={() => prevUserState(user.id)}>
-                <ArrowLeft />
-            </div>
+            {
+                user.state !== "interviewsInitial" &&
+                <div className="user-arrow" onClick={() => prevUserState(user.id)}>
+                    <ArrowLeft />
+                </div>
+            }
             <div className="user">
                 <p className="user__name">{user.name}</p>  
                 <p className="user__description">{user.description}</p>
@@ -44,9 +47,12 @@ export const UserCard: React.FC<Props> = ({ user }) => {
                     <Remove />
                 </div>
             </div>
-            <div className="user-arrow" onClick={() => nextUserState(user.id)}>
-                <ArrowRight />
-            </div>
+            {
+                user.state !== "rejection" &&
+                <div className="user-arrow" onClick={() => nextUserState(user.id)}>
+                    <ArrowRight />
+                </div>
+            }
         </div>
     )
 }

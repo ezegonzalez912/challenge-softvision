@@ -15,6 +15,7 @@
   min-height: 100vh;
   width: 100%;
   position: relative;
+  min-width: 380px;
 }
 
 .nav{
@@ -201,7 +202,7 @@
   box-sizing: border-box;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
-  width: 300px;
+  width: 330px;
   text-align: center;
 }
 .modal-add-user form{
@@ -245,6 +246,11 @@
 }
 .modal-btn-cancel:hover{
   color: rgb(185, 185, 185);
+}
+.msg-err{
+  color: tomato;
+  font-size: 12px;
+  letter-spacing: -0.2px
 }
 
 /*LIGHT MODE*/

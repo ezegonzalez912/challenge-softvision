@@ -41,7 +41,7 @@ export const ModalAddUser: React.FC <Props> = ({isChangeModal}) => {
 
     const handleSubmitModal = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if(name.length >= 6 && position.length >= 6 && description.length >= 6 && name.length < 17 && position.length < 17 && description.length < 15){
+        if(name.length >= 6 && position.length >= 6 && description.length >= 6 && name.length <= 20 && description.length <= 20 && position.length <= 15){
             if(userEditState){
                 editUser(name, description, position.toUpperCase(), userEditState?.id, linkedin)
             }else{

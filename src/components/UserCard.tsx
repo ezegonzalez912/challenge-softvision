@@ -13,7 +13,7 @@ interface Props {
 
 export const UserCard: React.FC<Props> = ({ user }) => {
 
-    const { prevUserState, nextUserState, setUserEditState, removeUser } = useContext(usersContext);
+    const { dispatch, setUserEditState } = useContext(usersContext);
     const { isChangeModal } = useContext(modalContext);
 
     const editUser = () => {
@@ -25,7 +25,7 @@ export const UserCard: React.FC<Props> = ({ user }) => {
         <div className="user-container">
             {
                 user.state !== "interviewsInitial" &&
-                <div className="user-arrow" onClick={() => prevUserState(user.id)}>
+                <div className="user-arrow" onClick={() => dispatch({type: "prevStateUser", payload: user.id})}>
                     <ArrowLeft />
                 </div>
             }
@@ -43,13 +43,13 @@ export const UserCard: React.FC<Props> = ({ user }) => {
                 <div onClick={editUser} className="icon-edit">
                     <Edit />
                 </div>
-                <div onClick={() => removeUser(user.id)} className="icon-remove">
+                <div onClick={() => dispatch({type: "removeUser", payload: user.id})} className="icon-remove">
                     <Remove />
                 </div>
             </div>
             {
                 user.state !== "rejection" &&
-                <div className="user-arrow" onClick={() => nextUserState(user.id)}>
+                <div className="user-arrow" onClick={() => dispatch({type: "nextStateUser", payload: user.id})}>
                     <ArrowRight />
                 </div>
             }

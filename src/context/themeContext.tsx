@@ -6,7 +6,7 @@ interface props {
 
 type context = {
     darkMode: boolean;
-    setDarkMode: any;
+    setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const themeContext = createContext({} as context);

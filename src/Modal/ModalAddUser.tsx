@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import { usersContext } from "../context/usersContext";
 import { useForm } from "../hooks/useForm";
 import { useValidation } from "../hooks/useValidation";
+import { User } from "../interfaces/interfaces";
 
 interface Props {
     isChangeModal: () => void;
@@ -9,7 +10,7 @@ interface Props {
 
 export const ModalAddUser: React.FC <Props> = ({isChangeModal}) => {
 
-    const { userEditState, setUserEditState, addUser, editUser } = useContext(usersContext);
+    const { userEditState, setUserEditState, dispatch } = useContext(usersContext);
 
     const handleModalDialogClick = (e: React.MouseEvent<HTMLInputElement>) => {
         e.stopPropagation();
@@ -30,7 +31,7 @@ export const ModalAddUser: React.FC <Props> = ({isChangeModal}) => {
             linkedin: userEditState?.linkedin || ""
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [editUser])
+    }, [userEditState])
 
     const {name, description, position, linkedin} = form;
 
@@ -41,11 +42,21 @@ export const ModalAddUser: React.FC <Props> = ({isChangeModal}) => {
 
     const handleSubmitModal = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        const user: User = {
+            id: userEditState ? userEditState.id : new Date().valueOf(),
+            name,
+            description,
+            position,
+            state: userEditState ? userEditState.state : "interviewsInitial",
+            linkedin
+        }
+
         if(name.length >= 6 && position.length >= 6 && description.length >= 6 && name.length <= 20 && description.length <= 20 && position.length <= 15){
             if(userEditState){
-                editUser(name, description, position.toUpperCase(), userEditState?.id, linkedin)
+                dispatch({type: "editUser", payload: user})
             }else{
-                addUser(name, description, position.toUpperCase(), linkedin)
+                dispatch({type: "addUser", payload: user})
             }
             handleCancelModal()
             setUserEditState(undefined)

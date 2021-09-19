@@ -1,6 +1,6 @@
-import { createContext, useEffect, useState } from "react";
-import { nextState, prevState } from "../helpers/helpers";
+import { createContext, useEffect, useReducer, useState } from "react";
 import { User } from "../interfaces/interfaces";
+import { usersReducer } from "./usersReducer";
 
 interface props {
     children: JSX.Element | JSX.Element[]
@@ -8,13 +8,9 @@ interface props {
 
 type context = {
     users: User[];
-    nextUserState: (id: number) => void;
-    prevUserState: (id: number) => void;
-    addUser: (name: string, description: string, position: string, linkedin: string) => void;
-    editUser: (name: string, description: string, position: string, id: number, linkedin: string) => void;
-    removeUser: (id: number) => void;
+    dispatch: any;
     userEditState: User | undefined;
-    setUserEditState: any;
+    setUserEditState: React.Dispatch<React.SetStateAction<User | undefined>>;
 }
 
 const initState = [
@@ -32,53 +28,21 @@ export const usersContext = createContext({} as context);
 
 export const UsersProvider = ({children}:props) => {
 
-    const [users, setUsers] = useState<User[]>(initState)
+    const [users, dispatch] = useReducer(usersReducer, initState)
     const [userEditState, setUserEditState] = useState<User | undefined>(undefined)
 
     useEffect(() => {
         const data = window.localStorage.getItem("challenge-softvision-users-121214");
         const users = data ? JSON.parse(data).users : initState;
-        setUsers(users)
-    }, [setUsers])
+        dispatch({type: "setUsers", payload: users})
+    }, [])
 
     useEffect(() => {
         localStorage.setItem("challenge-softvision-users-121214", JSON.stringify({users}))
     }, [users])
 
-    const addUser = (name: string, description: string, position: string, linkedin: string) => {
-        const newUser = {
-            id: new Date().valueOf(),
-            name,
-            description,
-            position,
-            state: "interviewsInitial",
-            linkedin
-        }
-        setUsers([...users, newUser])
-    }
-
-    const editUser = (name: string, description: string, position: string, id: number, linkedin: string) => {
-        const newUsers = users.map( user => user.id === id ? {...user, name, description, position, linkedin} : user)
-        setUsers(newUsers)
-    }
-
-    const removeUser = (id: number) => {
-        const newUsers = users.filter( user => user.id !== id)
-        setUsers(newUsers)
-    }
-
-    const nextUserState = (id: number):void => {
-        const newUsers = users.map( user => user.id === id ? {...user, state: nextState(user.state)} : user)
-        setUsers(newUsers)
-    }
-
-    const prevUserState = (id: number):void => {
-        const newUsers = users.map( user => user.id === id ? {...user, state: prevState(user.state)} : user)
-        setUsers(newUsers)
-    }
-
     return (
-        <usersContext.Provider value={{users, prevUserState, nextUserState, addUser, userEditState, setUserEditState, editUser, removeUser}}>
+        <usersContext.Provider value={{users, userEditState, setUserEditState, dispatch}}>
             {children}
         </usersContext.Provider>
     )

@@ -29,7 +29,7 @@ export const HomeScreen = () => {
                 <button className="btn" onClick={isChangeModal} style={{padding:"10px 15px", fontSize:"18px"}}>Añadir candidato</button>
                 <div className="toggle-theme">
                     <label style={{fontSize:"20px"}}>Modo oscuro</label>
-                    <Switch onChange={() => setDarkMode(!darkMode)} checked={darkMode} onColor="#BA3CC2" offColor="#518EC7"/>
+                    <Switch onChange={() => setDarkMode(!darkMode)} checked={darkMode} onColor="#BA3CC2" offColor="#518EC7" activeBoxShadow=''/>
                 </div>
             </nav>
             <section className="sections-grid">
